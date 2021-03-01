@@ -37,5 +37,6 @@ public class endGameController {
 
     @FXML
     private void onRestartGame(MouseEvent mouseEvent) {
+        // TODO: Whether restart program or close window
     }
 }

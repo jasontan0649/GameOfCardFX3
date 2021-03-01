@@ -20,9 +20,9 @@ public class Utils {
         hRow.setId("hRow");
         return hRow;
     }
-    private static void setMaxWidthHeight(Region n){
-        n.setMaxWidth(Double.MAX_VALUE);
-        n.setMaxHeight(Double.MAX_VALUE);
+    private static void setMaxWidthHeight(Region r){
+        r.setMaxWidth(Double.MAX_VALUE);
+        r.setMaxHeight(Double.MAX_VALUE);
     }
 
 }
