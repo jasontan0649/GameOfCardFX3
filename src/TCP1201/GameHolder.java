@@ -1,10 +1,4 @@
 package TCP1201;
-import javafx.scene.control.Label;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
-import javafx.scene.layout.GridPane;
-import javafx.scene.layout.HBox;
-import java.util.ArrayList;
 
 public class GameHolder {
     private Game game;
