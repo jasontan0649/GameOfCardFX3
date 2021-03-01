@@ -16,7 +16,6 @@ public class Main extends Application {
         this.primaryStage = primaryStage;
         Parent root = FXMLLoader.load(getClass().getResource("resources/home.fxml"));
         Scene scene = new Scene(root);
-        scene.getStylesheets().add("styles.css");
         primaryStage.setTitle("Game of Cards");
         primaryStage.setScene(scene);
         primaryStage.show();
@@ -25,7 +24,9 @@ public class Main extends Application {
     public static void switchScene(String fxml) throws IOException {
         // TODO: Screenshot Function here
         Parent root = FXMLLoader.load(Main.class.getResource(fxml));
-        primaryStage.getScene().setRoot(root);
+        Scene scene = new Scene(root);
+        scene.getStylesheets().addAll(Main.class.getResource("stylesheets/styles.css").toExternalForm());
+        primaryStage.setScene(scene);
     }
     public static void main(String[] args) {
         launch(args);

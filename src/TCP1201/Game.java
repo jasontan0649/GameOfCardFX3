@@ -1,4 +1,10 @@
 package TCP1201;
+import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
+
 import java.util.*;
 
 public class Game {
@@ -28,7 +34,7 @@ public class Game {
         return nameMaxLen;
     }
 
-    private void dealCards() {
+    public void dealCards() {
         Stack<Card> cards = Card.newShuffleCards();
         //temporary store cards for players
         Stack<Card>[] playersCards =  new Stack[players.size()];
@@ -42,12 +48,6 @@ public class Game {
         //player divide its own cards
         for(int i = 0; i < players.size(); i++)
             players.get(i).setCards(playersCards[i]);
-    }
-
-    public void showShuffleCard() {
-        dealCards();
-
-
     }
 
     public void showAvailableCard(){
