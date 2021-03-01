@@ -2,32 +2,26 @@ package TCP1201.controllers;
 
 import TCP1201.*;
 import javafx.fxml.FXML;
-import javafx.geometry.Insets;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import java.io.IOException;
 import java.util.ArrayList;
 
 public class RoundController {
-    private BorderPane root;
-    @FXML
-    private GridPane gridPane1;
-    @FXML
-    private GridPane gridPane2;
-    @FXML
-    private Label roundTitle;
-    @FXML
-    private Button nextRoundBtn;
+    @FXML private GridPane gridPane1;
+    @FXML private GridPane gridPane2;
+    @FXML private Label roundTitle;
+    @FXML private Button nextRoundBtn;
 
     private Game game;
     private int roundInt = 1;
 
-    public void initialize(){
+    @FXML
+    private void initialize(){
         this.game = GameHolder.getInstance().getGame();
         int totalPlayers = game.getPlayers().size();
         int maxRound;
@@ -46,10 +40,6 @@ public class RoundController {
             }else{
                 try {
                     game.removeWeakest(); //remove weakest player
-                } catch (IOException ioException) {
-                    ioException.printStackTrace();
-                }
-                try {
                     proceedToNext(maxRound);
                 } catch (IOException ioException) {
                     ioException.printStackTrace();
@@ -103,6 +93,7 @@ public class RoundController {
             i++;
         }
     }
+
     private void setUpGrid(){
         gridPane1.getChildren().clear();
         gridPane2.getChildren().clear();

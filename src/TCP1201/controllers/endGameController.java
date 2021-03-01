@@ -11,9 +11,11 @@ import java.util.ArrayList;
 
 public class endGameController {
 
-    public Label title;
+    @FXML
+    private Label title;
 
-    public void initialize(){
+    @FXML
+    private void initialize(){
         Game game = GameHolder.getInstance().getGame();
         showWinner(game);
     }
@@ -33,7 +35,7 @@ public class endGameController {
         title.setText(header);
     }
 
-
-    public void onRestartGame(MouseEvent mouseEvent) {
+    @FXML
+    private void onRestartGame(MouseEvent mouseEvent) {
     }
 }
