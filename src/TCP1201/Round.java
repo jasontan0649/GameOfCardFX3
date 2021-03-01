@@ -73,37 +73,6 @@ public class Round {
         }
     }
 
-    public void showCardsAtHand() {
-        System.out.println("Cards at Hand:");
-        int maxLen  = game.getNameMaxLen() + 1;
-
-        int i = 0;
-        for (Player p : game.getPlayers()) {
-            int spaceLen = maxLen - p.getName().length();
-            System.out.print(p.getName() + " ".repeat(spaceLen) + ":");
-            System.out.print(PrintCard.curAvlCards(cards.get(i)));
-            System.out.print(" | Point = ");
-            System.out.print(points.get(i));
-            if (winnerIdx.contains(i))
-                System.out.print(" | Win");
-            System.out.println();
-            i++;
-        }
-
-    }
-
-    public void showScore() {
-        System.out.println("Score:");
-        int maxLen  = game.getNameMaxLen() + 1;
-
-        for (Player p : game.getPlayers()) {
-            int spaceLen = maxLen - p.getName().length();
-            System.out.print(p.getName() + " ".repeat(spaceLen) + "= ");
-            System.out.print(p.getScore());
-            System.out.println();
-        }
-    }
-
     public ArrayList<Integer> getPoints(){
         return points;
     }

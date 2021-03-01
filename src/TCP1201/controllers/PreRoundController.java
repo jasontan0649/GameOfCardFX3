@@ -18,40 +18,31 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class PreRoundController {
-    @FXML
     public GridPane gridPane;
+    public Label title;
 
-    private GameHolder gameHolder;
+    private Game game;
 
     public void initialize(){
-        this.gameHolder = GameHolder.getInstance();
-        showShuffleCard(gameHolder.getGame());
+        this.game = GameHolder.getInstance().getGame();
+        int totalPlayers = game.getPlayers().size();
+        String header = "Pre Game of ";
+        if(totalPlayers == 3){
+            header += "3-Player Phase";
+        }else{
+            header += "2-Player Phase";
+        }
+        title.setText(header);
+        showShuffleCard();
     }
-    public void showShuffleCard(Game game){
+    public void showShuffleCard(){
         game.dealCards();
         gridPane.getChildren().clear();
-        ArrayList<Player> players = game.getPlayers();
-        for (int i = 0; i < players.size(); i++) {
-            Label pName = new Label(players.get(i).getName() + " : ");
-            gridPane.add(Utils.styleContent(pName),0, i);
-            int column = 1;
-            for (ArrayList<Card> cardPart : players.get(i).getCards()) {
-                HBox hBoxRow = Utils.styleHRow(new HBox());
-                ImageView[] imageViewsRow = new ImageView[cardPart.size()];
-                for (int z = 0; z < cardPart.size(); z++){
-                    imageViewsRow[z] = new ImageView();
-                    String fileName = "TCP1201/resources/cards/" + cardPart.get(z)+ ".png";
-                    imageViewsRow[z].setImage(new Image(fileName, 59, 100, true, true));
-                }
-                hBoxRow.getChildren().addAll(imageViewsRow);
-                gridPane.add(hBoxRow,column, i);
-                column++;
-            }
-        }
+        PrintCard.showAvailableCards(game,gridPane);
     }
 
     public void onShuffleCard(MouseEvent mouseEvent) {
-        showShuffleCard(gameHolder.getGame());
+        showShuffleCard();
     }
 
     public void onStartGame(MouseEvent mouseEvent) throws IOException {
