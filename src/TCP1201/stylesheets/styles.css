@@ -1,5 +1,17 @@
-#pName {
+.label{
+    -fx-alignment: center;
+}
+
+#gridContent {
     -fx-font-size: 16px;
     -fx-font-weight: bold;
-    -fx-padding: 0 20 50 20;
+}
+
+#hRow {
+    -fx-alignment: center;
+}
+
+#colTitle{
+    -fx-font-size: 26px;
+    -fx-font-weight: bold;
 }

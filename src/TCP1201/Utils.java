@@ -1,13 +1,28 @@
 package TCP1201;
-
 import javafx.scene.control.Label;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.Region;
 
 public class Utils {
-    public static Label stylePName(Label pName){
-        pName.setMaxWidth(Double.MAX_VALUE);
-        pName.setMaxHeight(Double.MAX_VALUE);
-        pName.setWrapText(true);
-        pName.setId("pName");
-        return pName;
+    public static Label styleContent(Label content){
+        setMaxWidthHeight(content);
+        content.setWrapText(true);
+        content.setId("gridContent");
+        return content;
     }
+    public static Label styleColTitle(Label colTitle){
+        setMaxWidthHeight(colTitle);
+        colTitle.setId("colTitle");
+        return colTitle;
+    }
+    public static HBox styleHRow(HBox hRow){
+        setMaxWidthHeight(hRow);
+        hRow.setId("hRow");
+        return hRow;
+    }
+    private static void setMaxWidthHeight(Region n){
+        n.setMaxWidth(Double.MAX_VALUE);
+        n.setMaxHeight(Double.MAX_VALUE);
+    }
+
 }

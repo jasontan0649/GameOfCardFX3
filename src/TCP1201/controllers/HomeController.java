@@ -17,7 +17,6 @@ public class HomeController {
         Game game = new Game(p1Name.getText(),p2Name.getText(),p3Name.getText());
         holder.setGame(game);
         Main.switchScene("resources/preRound.fxml");
-
     }
 }
 

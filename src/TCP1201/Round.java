@@ -73,10 +73,6 @@ public class Round {
         }
     }
 
-    public void showRound() {
-        System.out.println("*** ROUND " + roundInt + " ***");
-    }
-
     public void showCardsAtHand() {
         System.out.println("Cards at Hand:");
         int maxLen  = game.getNameMaxLen() + 1;
@@ -108,11 +104,19 @@ public class Round {
         }
     }
 
-    public void showNextRound() {
-        System.out.println("Press ENTER to next round");
-        Scanner input = new Scanner(System.in);
-        input.nextLine();
+    public ArrayList<Integer> getPoints(){
+        return points;
     }
+
+    public HashSet<Integer> getWinnerIdx(){
+        return winnerIdx;
+    }
+    public ArrayList<ArrayList<Card>> getCards(){
+        return cards;
+    };
+
+
+
 
 }
 
