@@ -1,5 +1,6 @@
 package TCP1201.controllers;
 import TCP1201.Game;
+import TCP1201.GameHolder;
 import TCP1201.Main;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -12,7 +13,9 @@ public class HomeController {
     @FXML private TextField p3Name;
 
     public void handleButtonAction(ActionEvent actionEvent) throws IOException {
+        GameHolder holder = GameHolder.getInstance();
         Game game = new Game(p1Name.getText(),p2Name.getText(),p3Name.getText());
+        holder.setGame(game);
         Main.switchScene("resources/preRound.fxml");
 
     }

@@ -14,7 +14,7 @@ public class Card implements Comparable<Card> {
         setCard(cardValue);
     }
 
-    //getter
+    //getterz
     public char getSuit() {
         return this.suit;
     }
@@ -70,7 +70,7 @@ public class Card implements Comparable<Card> {
 
     //static method for instantiate a stack of shuffled cards
     public static Stack<Card> newShuffleCards() {
-        Stack<Card> newCards = new Stack<Card>();
+        Stack<Card> newCards = new Stack<>();
         for(Card c : Card.CARDS)
             newCards.push(c);
         Collections.shuffle(newCards);

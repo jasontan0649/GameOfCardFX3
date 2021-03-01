@@ -47,18 +47,7 @@ public class Game {
     public void showShuffleCard() {
         dealCards();
 
-        Scanner input = new Scanner(System.in);
-        while (true) {
-            showAvailableCard();
-            System.out.println("Press S to Shuffle or ENTER to start");
-            String res = input.nextLine();
-            if (res.equals("")) {
-                System.out.println("<Enter is press>");
-                return;
-            }
-            System.out.println("\n\nShuffle card");
-            dealCards();
-        }
+
     }
 
     public void showAvailableCard(){
