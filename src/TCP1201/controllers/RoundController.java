@@ -2,6 +2,7 @@ package TCP1201.controllers;
 
 import TCP1201.*;
 import javafx.fxml.FXML;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
@@ -31,9 +32,13 @@ public class RoundController {
         showRound();
         roundInt++;
         nextRoundBtn.setOnMouseClicked(e -> {
+
             if(roundInt <= maxRound){
                 showRound();
                 roundInt++;
+
+                Scene scene = gridPane1.getScene();
+                Snapshot.saveAsPng(scene);
             }else{
                 try {
                     game.removeWeakest(); //remove weakest player

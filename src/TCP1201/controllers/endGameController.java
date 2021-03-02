@@ -1,12 +1,12 @@
 package TCP1201.controllers;
 
-import TCP1201.Game;
-import TCP1201.GameHolder;
-import TCP1201.Player;
+import TCP1201.*;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class endGameController {
@@ -36,7 +36,13 @@ public class endGameController {
     }
 
     @FXML
-    private void onRestartGame(MouseEvent mouseEvent) {
-        // TODO: Whether restart program or close window
+    private void onRestartGame(MouseEvent mouseEvent) throws IOException {
+        Snapshot.clearList();
+        Snapshot.setCount(1);
+        Main.startGame();
+    }
+
+    public void onOpenHistory(ActionEvent actionEvent) throws IOException {
+        Main.openHistory();
     }
 }

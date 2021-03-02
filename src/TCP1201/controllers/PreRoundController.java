@@ -2,6 +2,7 @@ package TCP1201.controllers;
 
 import TCP1201.*;
 import javafx.fxml.FXML;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
@@ -30,6 +31,8 @@ public class PreRoundController {
     @FXML
     private void onShuffleCard(MouseEvent mouseEvent) {
         showShuffleCard();
+        Scene scene = gridPane.getScene();
+        Snapshot.saveAsPng(scene);
     }
 
     @FXML

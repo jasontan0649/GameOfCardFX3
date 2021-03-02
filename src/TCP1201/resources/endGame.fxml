@@ -3,6 +3,7 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
@@ -15,7 +16,12 @@
                         <Font size="45.0" />
                     </font>
                 </Label>
-                <Button mnemonicParsing="false" onMouseClicked="#onRestartGame" text="Restart Game" />
+                <HBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="200.0" spacing="100.0">
+                    <children>
+                        <Button mnemonicParsing="false" onMouseClicked="#onRestartGame" text="Restart Game" />
+                        <Button mnemonicParsing="false" onAction="#onOpenHistory" text="View History" />
+                    </children>
+                </HBox>
             </children>
         </VBox>
     </center>
