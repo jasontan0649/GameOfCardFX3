@@ -31,10 +31,10 @@ public class PrintCard {
     private static ImageView[] imageViewsRow(ArrayList<Card> cardPart, int width, int height) {
         ImageView[] imageViewsRow = new ImageView[cardPart.size()];
 
-        for (int z = 0; z < cardPart.size(); z++){
-            imageViewsRow[z] = new ImageView();
-            String fileName = "TCP1201/resources/cards/" + cardPart.get(z)+ ".png";
-            imageViewsRow[z].setImage(new Image(fileName, width, height, true, true));
+        for (int i = 0; i < cardPart.size(); i++){
+            imageViewsRow[i] = new ImageView();
+            String fileName = "TCP1201/resources/cards/" + cardPart.get(i)+ ".png";
+            imageViewsRow[i].setImage(new Image(fileName, width, height, true, true));
         }
         return imageViewsRow;
     }
