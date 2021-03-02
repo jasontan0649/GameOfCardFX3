@@ -10,6 +10,7 @@ import java.io.IOException;
 
 public class Main extends Application {
     private static Stage primaryStage;
+
     @Override
     public void start(Stage primaryStage) throws Exception{
         this.primaryStage = primaryStage;
@@ -27,6 +28,7 @@ public class Main extends Application {
         scene.getStylesheets().addAll(Main.class.getResource("stylesheets/styles.css").toExternalForm());
         primaryStage.setScene(scene);
     }
+
     public static void main(String[] args) {
         launch(args);
     }

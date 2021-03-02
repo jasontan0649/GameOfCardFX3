@@ -79,9 +79,10 @@ public class Round {
     public HashSet<Integer> getWinnerIdx(){
         return winnerIdx;
     }
+
     public ArrayList<ArrayList<Card>> getCards(){
         return cards;
-    };
+    }
 
 
 

@@ -24,16 +24,13 @@ public class RoundController {
     private void initialize(){
         this.game = GameHolder.getInstance().getGame();
         int totalPlayers = game.getPlayers().size();
-        int maxRound;
-        if(totalPlayers == 3){
-            maxRound = 3;
-        }else{
-            maxRound = 4;
-        }
+        int maxRound = 6 - totalPlayers;
+
+
         // Run Initial Round
         showRound();
         roundInt++;
-        nextRoundBtn.setOnMouseClicked(e ->{
+        nextRoundBtn.setOnMouseClicked(e -> {
             if(roundInt <= maxRound){
                 showRound();
                 roundInt++;
@@ -67,12 +64,9 @@ public class RoundController {
             // Add Cards At Hand
             ArrayList<Card> cardPart = round.getCards().get(i);
             HBox hBoxRow = Utils.styleHRow(new HBox());
-            ImageView[] imageViewsRow = new ImageView[cardPart.size()];
-            for (int j = 0; j < cardPart.size(); j++){
-                imageViewsRow[j] = new ImageView();
-                String fileName = "TCP1201/resources/cards/" + cardPart.get(j)+ ".png";
-                imageViewsRow[j].setImage(new Image(fileName, 59, 80, true, true));
-            }
+
+            ImageView[] imageViewsRow = PrintCard.createImageViewRow(cardPart, 59, 80);
+
             hBoxRow.getChildren().addAll(imageViewsRow);
             gridPane1.add(hBoxRow,1, row );
 

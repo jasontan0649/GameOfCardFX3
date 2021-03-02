@@ -10,16 +10,19 @@ public class Utils {
         content.setId("gridContent");
         return content;
     }
+
     public static Label styleColTitle(Label colTitle){
         setMaxWidthHeight(colTitle);
         colTitle.setId("colTitle");
         return colTitle;
     }
+
     public static HBox styleHRow(HBox hRow){
         setMaxWidthHeight(hRow);
         hRow.setId("hRow");
         return hRow;
     }
+
     private static void setMaxWidthHeight(Region r){
         r.setMaxWidth(Double.MAX_VALUE);
         r.setMaxHeight(Double.MAX_VALUE);
