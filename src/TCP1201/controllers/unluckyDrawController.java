@@ -1,9 +1,7 @@
 package TCP1201.controllers;
-import TCP1201.Game;
-import TCP1201.GameHolder;
-import TCP1201.Main;
-import TCP1201.Player;
+import TCP1201.*;
 import javafx.fxml.FXML;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
@@ -12,6 +10,7 @@ import java.io.IOException;
 
 public class unluckyDrawController {
     @FXML private Label title;
+    @FXML private Button startDrawBtn;
     @FXML private Button nextPhaseBtn;
 
     private Game game;
@@ -26,7 +25,10 @@ public class unluckyDrawController {
         Player unluckyPlayer = game.unluckyDraw(game.getWeakPlayers());
         String header = "The unlucky player is " + unluckyPlayer.getName();
         title.setText(header);
+        startDrawBtn.setDisable(true);
         nextPhaseBtn.setVisible(true);
+        Scene scene = title.getScene();
+        Snapshot.saveAsPng(scene);
     }
 
     @FXML

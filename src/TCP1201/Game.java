@@ -57,10 +57,12 @@ public class Game {
     public void removeWeakest() throws IOException {
         ArrayList<Player> weakPlayers = getWeakPlayers();
         //check if more than 1 worst player, if more than 1, proceed to else
-        if (weakPlayers.size() == 1)
+        if (weakPlayers.size() == 1){
             players.remove(weakPlayers.get(0));
-        else
-        if (phaseInt == 3) //unlucky draw only for 3rd phase
+            if(phaseInt == 3) // for 3-player phase
+                Main.switchScene("resources/postFirstPhase.fxml");
+        }
+        else if (phaseInt == 3) //unlucky draw only for 3-player phase
             Main.switchScene("resources/unluckyDraw.fxml");
     }
 
@@ -68,7 +70,10 @@ public class Game {
         Random r = new Random();
         Player unluckyPlayer =  weakPlayers.get(r.nextInt(weakPlayers.size()));
         players.remove(unluckyPlayer);
-
         return unluckyPlayer;
+    }
+
+    public void nextPhase(){
+        phaseInt--;
     }
 }

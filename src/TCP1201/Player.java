@@ -28,7 +28,7 @@ public class Player implements Comparable<Player>{
     }
 
     public void addScore(int score) {
-        this.score += score;
+//        this.score += score;
     }
 
     public void setName(String name) {

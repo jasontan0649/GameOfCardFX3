@@ -26,23 +26,24 @@ public class RoundController {
         this.game = GameHolder.getInstance().getGame();
         int totalPlayers = game.getPlayers().size();
         int maxRound = 6 - totalPlayers;
-
-
         // Run Initial Round
         showRound();
         roundInt++;
         nextRoundBtn.setOnMouseClicked(e -> {
-
             if(roundInt <= maxRound){
                 showRound();
                 roundInt++;
-
                 Scene scene = gridPane1.getScene();
                 Snapshot.saveAsPng(scene);
             }else{
                 try {
                     game.removeWeakest(); //remove weakest player
-                    proceedToNext(maxRound);
+                    if(maxRound == 3) { // for 3-player phase
+                        game.nextPhase();
+                    }else{
+                        Main.switchScene("resources/endGame.fxml");
+                    }
+
                 } catch (IOException ioException) {
                     ioException.printStackTrace();
                 }
@@ -99,13 +100,6 @@ public class RoundController {
         gridPane1.add(Utils.styleColTitle(new Label("Cards At Hand")),1, 0);
         gridPane1.add(Utils.styleColTitle(new Label("Point")),2, 0);
         gridPane1.add(Utils.styleColTitle(new Label("Score")),4, 0);
-    }
-
-    private void proceedToNext(int maxRound) throws IOException {
-        if(maxRound == 3)   // 3 players phase
-            Main.switchScene("resources/postFirstPhase.fxml");
-        else                // 2 players phase
-            Main.switchScene("resources/endGame.fxml");
     }
 
 }

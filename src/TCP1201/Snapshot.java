@@ -25,6 +25,7 @@ public class Snapshot {
         String p1 = Paths.get(System.getProperty("user.dir")).toString();
         File file = new File(p1 + "\\history\\history" + count++ + ".png");
 
+
         try {
             ImageIO.write(SwingFXUtils.fromFXImage(image, null), "png", file);
             filenameList.add(file);
