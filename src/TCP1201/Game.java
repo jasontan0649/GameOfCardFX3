@@ -60,10 +60,17 @@ public class Game {
         if (weakPlayers.size() == 1){
             players.remove(weakPlayers.get(0));
             if(phaseInt == 3) // for 3-player phase
-                Main.switchScene("resources/postFirstPhase.fxml");
-        }
-        else if (phaseInt == 3) //unlucky draw only for 3-player phase
-            Main.switchScene("resources/unluckyDraw.fxml");
+                showNextPhase();
+        } else if (phaseInt == 3) //unlucky draw only for 3-player phase
+            showUnluckyDraw();
+    }
+
+    private void showNextPhase() throws IOException {
+        Main.switchScene("resources/postFirstPhase.fxml");
+    }
+
+    private void showUnluckyDraw() throws IOException {
+        Main.switchScene("resources/unluckyDraw.fxml");
     }
 
     public Player unluckyDraw(ArrayList<Player> weakPlayers) {
@@ -75,5 +82,9 @@ public class Game {
 
     public void nextPhase(){
         phaseInt--;
+    }
+
+    public void showEndGame() throws IOException {
+        Main.switchScene("resources/endGame.fxml");
     }
 }

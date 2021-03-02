@@ -30,23 +30,24 @@ public class RoundController {
         showRound();
         roundInt++;
         nextRoundBtn.setOnMouseClicked(e -> {
-            if(roundInt <= maxRound){
+            if(roundInt <= maxRound){ //If not last round
                 showRound();
                 roundInt++;
                 Scene scene = gridPane1.getScene();
                 Snapshot.saveAsPng(scene);
-            }else{
-                try {
-                    game.removeWeakest(); //remove weakest player
-                    if(maxRound == 3) { // for 3-player phase
-                        game.nextPhase();
-                    }else{
-                        Main.switchScene("resources/endGame.fxml");
-                    }
+                return;
+            }
+            //After last round
+            try {
+                game.removeWeakest(); //remove weakest player
 
-                } catch (IOException ioException) {
-                    ioException.printStackTrace();
-                }
+                if(maxRound == 3)  // for 3-player phase
+                    game.nextPhase();
+                else // 2-players phase(last phase), show end game
+                    game.showEndGame();
+
+            } catch (IOException ioException) {
+                ioException.printStackTrace();
             }
         });
     }

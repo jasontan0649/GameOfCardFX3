@@ -26,6 +26,7 @@ public class Main extends Application {
         cleanup();
         Parent root = FXMLLoader.load(Main.class.getResource("resources/home.fxml"));
         Scene scene = new Scene(root);
+        scene.getStylesheets().addAll(Main.class.getResource("stylesheets/styles.css").toExternalForm());
         primaryStage.setTitle("Game of Cards");
         primaryStage.setScene(scene);
         primaryStage.show();
