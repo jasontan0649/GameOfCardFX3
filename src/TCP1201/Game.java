@@ -8,14 +8,11 @@ public class Game {
     private int phaseInt;
 
     public Game(String p1Name,String p2Name,String p3Name) {
-        ArrayList<String> playersName = new ArrayList<>();
-        playersName.add(p1Name);
-        playersName.add(p2Name);
-        playersName.add(p3Name);
-        players = new ArrayList<Player>();
-        for (String playerName : playersName) {
-            players.add(new Player(playerName));
-        }
+        this.players = new ArrayList<Player>();
+        players.add(new Player(p1Name));
+        players.add(new Player(p2Name));
+        players.add(new Player(p3Name));
+
         phaseInt = 3;
     }
 

@@ -16,7 +16,7 @@ public class HomeController {
     @FXML
     private void onClickHandler(MouseEvent mouseEvent) throws IOException {
         GameHolder holder = GameHolder.getInstance();
-        Game game = new Game(p1Name.getText(),p2Name.getText(),p3Name.getText());
+        Game game = new Game(p1Name.getText(), p2Name.getText(), p3Name.getText());
         holder.setGame(game);
         Main.switchScene("resources/preRound.fxml");
     }

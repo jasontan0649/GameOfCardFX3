@@ -33,6 +33,7 @@ public class Snapshot {
             Logger.getLogger(ModuleLayer.Controller.class.getName()).log(Level.SEVERE,null,e);
         }
     }
+
     public static void clearList(){
         filenameList.clear();
     }
