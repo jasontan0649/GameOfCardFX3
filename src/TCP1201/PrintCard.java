@@ -9,6 +9,7 @@ import java.util.ArrayList;
 public class PrintCard {
     public static void showAvailableCards(Game game, GridPane gridPane){
         ArrayList<Player> players = game.getPlayers();
+
         for (int i = 0; i < players.size(); i++) {
             Label pName = new Label(players.get(i).getName() + " : ");
             gridPane.add(Utils.styleContent(pName),0, i);

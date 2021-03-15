@@ -15,8 +15,8 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception{
         this.primaryStage = primaryStage;
         startGame();
-
     }
+
     private static void cleanup(){
         GameHolder holder = GameHolder.getInstance();
         holder.setGame(null);

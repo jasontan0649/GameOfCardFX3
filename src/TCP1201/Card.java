@@ -1,4 +1,5 @@
 package TCP1201;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.Stack;
@@ -6,9 +7,10 @@ import java.util.Stack;
 public class Card implements Comparable<Card> {
     private char suit;
     private char value;
+
     private final static String VALID_SUIT = "cdhs";
     private final static String VALID_VALUE = "A23456789XJQK";
-    private final static Card CARDS[] = geneCards();
+    private final static ArrayList<Card> CARDS = geneCards();
 
     public Card(String cardValue) {
         setCard(cardValue);
@@ -55,15 +57,14 @@ public class Card implements Comparable<Card> {
     }
 
     //static method for initialize stack of card to program
-    private static Card[] geneCards() {
-        Card cards[] = new Card[52];
+    private static ArrayList<Card> geneCards() {
+        ArrayList<Card> cards = new ArrayList<Card>(52);
         char[] suits = VALID_SUIT.toCharArray();
         char[] values = VALID_VALUE.toCharArray();
 
-        int i = 0;
         for (char value : values)
             for (char suit : suits)
-                cards[i++] = new Card("" + suit + value);
+                cards.add(new Card("" + suit + value));
 
         return cards;
     }
@@ -71,8 +72,8 @@ public class Card implements Comparable<Card> {
     //static method for instantiate a stack of shuffled cards
     public static Stack<Card> newShuffleCards() {
         Stack<Card> newCards = new Stack<>();
-        for(Card c : Card.CARDS)
-            newCards.push(c);
+        newCards.addAll(CARDS);
+
         Collections.shuffle(newCards);
         return newCards;
     }

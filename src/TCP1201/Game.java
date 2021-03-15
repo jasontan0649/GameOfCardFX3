@@ -8,7 +8,7 @@ public class Game {
     private int phaseInt;
 
     public Game(String p1Name,String p2Name,String p3Name) {
-        this.players = new ArrayList<Player>();
+        this.players = new ArrayList<Player>(3);
         players.add(new Player(p1Name));
         players.add(new Player(p2Name));
         players.add(new Player(p3Name));

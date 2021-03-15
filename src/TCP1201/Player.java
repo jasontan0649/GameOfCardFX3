@@ -36,9 +36,9 @@ public class Player implements Comparable<Player>{
     }
 
     public void setCards(Stack<Card> cards) {
-        this.cards = new LinkedList<>();
+        this.cards = new ArrayDeque<>();
         while(!cards.isEmpty()) {
-            ArrayList<Card> tmp = new ArrayList<>();
+            ArrayList<Card> tmp = new ArrayList<>(5);
             for (int i = 0; !cards.isEmpty() && i < 5; i++)
                 tmp.add(cards.pop());
             this.cards.add(tmp);
