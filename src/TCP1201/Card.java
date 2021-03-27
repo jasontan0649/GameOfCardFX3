@@ -7,6 +7,7 @@ import java.util.Stack;
 public class Card implements Comparable<Card> {
     private char suit;
     private char value;
+    private static ArrayList<Integer> rD = rDData();
 
     private final static String VALID_SUIT = "cdhs";
     private final static String VALID_VALUE = "A23456789XJQK";
@@ -69,10 +70,20 @@ public class Card implements Comparable<Card> {
         return cards;
     }
 
+    private static ArrayList<Integer> rDData() {
+        ArrayList<Integer> numbers = new ArrayList<>(52);
+        for (int i = 0; i < 52; i++)
+            numbers.add(i);
+        return numbers;
+    }
+
     //static method for instantiate a stack of shuffled cards
     public static Stack<Card> newShuffleCards() {
+        Collections.shuffle(rD);
+
         Stack<Card> newCards = new Stack<>();
-        newCards.addAll(CARDS);
+        for (Integer i : rD)
+            newCards.push(CARDS.get(i));
 
         Collections.shuffle(newCards);
         return newCards;
